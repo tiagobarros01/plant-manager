@@ -23,6 +23,7 @@
         "tsx": "never"
       }
     ],
+    "react/jsx-props-no-spreading": "off",
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
     "import/no-unresolved": "off",
     "no-use-before-define": "off",

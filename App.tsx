@@ -1,22 +1,10 @@
-import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+/* eslint-disable import/extensions */
+import React from 'react';
+
+import { Welcome } from './src/screens/Welcome';
 
 export default function App() {
-
-  const { container } = style
-
   return (
-    <View style={container}>
-      <Text>Hello</Text>
-      <Text>NLW#5</Text>
-    </View>
+    <Welcome />
   );
 }
-
-const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});

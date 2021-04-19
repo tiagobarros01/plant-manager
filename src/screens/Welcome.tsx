@@ -1,14 +1,16 @@
+/* eslint-disable import/extensions */
 import React from 'react';
 import {
-  View, Text, Image, TouchableOpacity,
+  Text, Image, TouchableOpacity,
 } from 'react-native';
 
 import wateringImg from '../assets/watering.png';
+import { Title, Wrapper } from '../styles/screens/Welcome';
 
 export function Welcome() {
   return (
-    <View>
-      <Text>Gerencie suas plantas de forma fácil</Text>
+    <Wrapper>
+      <Title>Gerencie suas plantas de forma fácil</Title>
 
       <Image source={wateringImg} />
       <Text>
@@ -21,6 +23,6 @@ export function Welcome() {
           {'>'}
         </Text>
       </TouchableOpacity>
-    </View>
+    </Wrapper>
   );
 }

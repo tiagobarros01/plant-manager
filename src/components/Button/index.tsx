@@ -4,7 +4,9 @@ import { BtnContainer, Text } from './style';
 
 export function Button() {
   return (
-    <BtnContainer>
+    <BtnContainer
+      activeOpacity={0.7}
+    >
       <Text>
         Confirm
       </Text>

@@ -1,13 +1,10 @@
 /* eslint-disable camelcase */
-/* eslint-disable import/extensions */
 import { Jost_400Regular, Jost_600SemiBold, useFonts } from '@expo-google-fonts/jost';
 import AppLoading from 'expo-app-loading';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import Confirmation from './src/screens/Confirmation';
-// import UserIdentification from './src/screens/UserIdentification';
-// import { Welcome } from './src/screens/Welcome';
+import Routes from './src/routes/index';
 import light from './src/styles/themes/light';
 
 export default function App() {
@@ -20,7 +17,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={light}>
-      <Confirmation />
+      <Routes />
     </ThemeProvider>
   );
 }

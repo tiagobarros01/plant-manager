@@ -14,7 +14,7 @@ import {
 } from '../styles/screens/Welcome';
 import light from '../styles/themes/light';
 
-export function Welcome() {
+function Welcome() {
   return (
     <Container>
       <Wrraper>
@@ -45,3 +45,5 @@ const styles = StyleSheet.create({
     color: light.colors.white,
   },
 });
+
+export default Welcome;

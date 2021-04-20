@@ -7,6 +7,13 @@ export const Container = styled.SafeAreaView`
   justify-content: space-around;
 `;
 
+export const KeyboardAvoid = styled.KeyboardAvoidingView`
+  flex: 1;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+`;
+
 export const Wrapper = styled.View`
   flex: 1;
   width: 100%;
@@ -17,6 +24,10 @@ export const Form = styled.View`
   justify-content: center;
   padding-left: 54;
   padding-right: 54;
+  align-items: center;
+`;
+
+export const Header = styled.View`
   align-items: center;
 `;
 
@@ -45,4 +56,11 @@ export const Input = styled.TextInput`
   padding-left: 10;
   padding-right: 10;
   text-align: center;
+`;
+
+export const Footer = styled.View`
+  margin-top: 40;
+  width: 100%;
+  padding-left: 20;
+  padding-right: 20;
 `;

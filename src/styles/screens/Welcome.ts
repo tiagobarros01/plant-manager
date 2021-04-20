@@ -11,7 +11,7 @@ export const Title = styled.Text`
   font-weight: bold;
   text-align: center;
   color: ${(props) => props.theme.colors.heading};
-  margin-top: 38;
+  margin-top: 30;
 `;
 
 export const Image = styled.Image`
@@ -25,4 +25,19 @@ export const SubTitle = styled.Text`
   padding-left: 20;
   padding-right: 20;
   color: ${(props) => props.theme.colors.heading};
+`;
+
+export const TouchableButton = styled.TouchableOpacity`
+  background: ${(props) => props.theme.colors.green};
+  justify-content: center;
+  align-items: center;
+  border-radius: 16;
+  margin-bottom: 10;
+  height: 56;
+  width: 56;
+`;
+
+export const ButtonText = styled.Text`
+  color: ${(props) => props.theme.colors.white};
+  font-size: 24;
 `;

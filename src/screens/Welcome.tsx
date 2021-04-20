@@ -2,9 +2,13 @@
 import React from 'react';
 
 import wateringImg from '../assets/watering.png';
-import { Button } from '../components/TouchableButton';
 import {
-  SubTitle, Title, Wrapper, Image,
+  SubTitle,
+  Title,
+  Wrapper,
+  Image,
+  TouchableButton,
+  ButtonText,
 } from '../styles/screens/Welcome';
 
 export function Welcome() {
@@ -24,7 +28,13 @@ export function Welcome() {
         Não esqueça mais de regar suas plantas.
         Nós cuidamos de lembrar você sempre que precisar.
       </SubTitle>
-      <Button title=">" />
+      <TouchableButton
+        activeOpacity={0.4}
+      >
+        <ButtonText>
+          {'>'}
+        </ButtonText>
+      </TouchableButton>
     </Wrapper>
   );
 }

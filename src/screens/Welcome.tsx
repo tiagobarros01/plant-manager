@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
-/* eslint-disable import/extensions */
 import { Entypo } from '@expo/vector-icons';
 import React from 'react';
 import { StyleSheet } from 'react-native';

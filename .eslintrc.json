@@ -15,14 +15,7 @@
   },
   "plugins": ["react", "@typescript-eslint", "import-helpers"],
   "rules": {
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "ts": "never",
-        "tsx": "never"
-      }
-    ],
+    "import/extensions": "off",
     "react/jsx-props-no-spreading": "off",
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
     "import/no-unresolved": "off",

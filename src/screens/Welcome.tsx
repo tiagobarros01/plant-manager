@@ -23,13 +23,13 @@ export function Welcome() {
 
       </Title>
 
-      <Image source={wateringImg} />
+      <Image source={wateringImg} resizeMode="contain" />
       <SubTitle>
         Não esqueça mais de regar suas plantas.
         Nós cuidamos de lembrar você sempre que precisar.
       </SubTitle>
       <TouchableButton
-        activeOpacity={0.4}
+        activeOpacity={0.7}
       >
         <ButtonText>
           {'>'}

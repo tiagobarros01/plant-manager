@@ -1,9 +1,12 @@
+import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
+
+const { width, height } = Dimensions.get('window');
 
 export const Wrapper = styled.SafeAreaView`
   flex: 1;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
 export const Title = styled.Text`
@@ -16,7 +19,7 @@ export const Title = styled.Text`
 
 export const Image = styled.Image`
     width: 292;
-    height: 284;
+    height: ${width * 0.7};
   `;
 
 export const SubTitle = styled.Text`

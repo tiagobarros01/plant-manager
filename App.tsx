@@ -5,7 +5,8 @@ import AppLoading from 'expo-app-loading';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import UserIdentification from './src/screens/UserIdentification';
+import Confirmation from './src/screens/Confirmation';
+// import UserIdentification from './src/screens/UserIdentification';
 // import { Welcome } from './src/screens/Welcome';
 import light from './src/styles/themes/light';
 
@@ -19,7 +20,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={light}>
-      <UserIdentification />
+      <Confirmation />
     </ThemeProvider>
   );
 }

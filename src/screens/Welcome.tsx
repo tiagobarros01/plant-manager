@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable import/extensions */
+import { Entypo } from '@expo/vector-icons';
 import React from 'react';
+import { StyleSheet, Text } from 'react-native';
 
 import wateringImg from '../assets/watering.png';
 import {
@@ -8,8 +11,8 @@ import {
   Wrapper,
   Image,
   TouchableButton,
-  ButtonText,
 } from '../styles/screens/Welcome';
+import light from '../styles/themes/light';
 
 export function Welcome() {
   return (
@@ -17,9 +20,9 @@ export function Welcome() {
       <Title>
         Gerencie
         {'\n'}
-        suas plantas
+        suas plantas de
         {'\n'}
-        de forma fácil
+        forma fácil
 
       </Title>
 
@@ -31,10 +34,17 @@ export function Welcome() {
       <TouchableButton
         activeOpacity={0.7}
       >
-        <ButtonText>
-          {'>'}
-        </ButtonText>
+        <Text>
+          <Entypo name="chevron-right" style={styles.buttonIcon} />
+        </Text>
       </TouchableButton>
     </Wrapper>
   );
 }
+
+const styles = StyleSheet.create({
+  buttonIcon: {
+    fontSize: 28,
+    color: light.colors.white,
+  },
+});

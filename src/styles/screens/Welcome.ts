@@ -1,7 +1,7 @@
 import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 export const Wrapper = styled.SafeAreaView`
   flex: 1;
@@ -40,7 +40,7 @@ export const TouchableButton = styled.TouchableOpacity`
   width: 56;
 `;
 
-export const ButtonText = styled.Text`
+export const ButtonIcon = styled.Text`
   color: ${(props) => props.theme.colors.white};
-  font-size: 24;
+  font-size: 32;
 `;

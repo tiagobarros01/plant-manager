@@ -20,4 +20,9 @@ export default {
 
     red: '#E83F5B',
   },
+  fonts: {
+    heading: 'Jost_600SemiBold',
+    text: 'Jost_400Regular',
+    complement: 'Jost_400Regular',
+  },
 };

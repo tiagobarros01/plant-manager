@@ -22,5 +22,10 @@ declare module 'styled-components/native' {
 
       red: string;
     };
+    fonts: {
+      heading: string;
+      text: string;
+      complement: string;
+    },
   }
 }

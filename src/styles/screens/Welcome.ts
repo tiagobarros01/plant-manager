@@ -3,18 +3,26 @@ import styled from 'styled-components/native';
 
 const { width } = Dimensions.get('window');
 
-export const Wrapper = styled.SafeAreaView`
+export const Container = styled.SafeAreaView`
+  flex: 1;
+`;
+
+export const Wrraper = styled.View`
   flex: 1;
   align-items: center;
   justify-content: space-around;
+  padding-left: 20;
+  padding-right: 20;
 `;
 
 export const Title = styled.Text`
-  font-size: 32;
+  font-size: 28;
   font-weight: bold;
   text-align: center;
   color: ${(props) => props.theme.colors.heading};
   margin-top: 30;
+  font-family: ${(props) => props.theme.fonts.heading};
+  line-height: 34;
 `;
 
 export const Image = styled.Image`
@@ -28,6 +36,8 @@ export const SubTitle = styled.Text`
   padding-left: 20;
   padding-right: 20;
   color: ${(props) => props.theme.colors.heading};
+  font-family: ${(props) => props.theme.fonts.text};
+  line-height: 25;
 `;
 
 export const TouchableButton = styled.TouchableOpacity`

@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/core';
 import React, { useState } from 'react';
 import { Platform } from 'react-native';
 
@@ -16,6 +17,8 @@ import {
 import light from '../styles/themes/light';
 
 export default function UserIdentification() {
+  const navigation = useNavigation();
+
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
   const [name, setName] = useState<String>();
@@ -34,6 +37,10 @@ export default function UserIdentification() {
     setName(value);
   }
 
+  function handleSubmit() {
+    navigation.navigate('Confirmation');
+  }
+
   return (
     <Container>
       <KeyboardAvoid behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
@@ -50,7 +57,7 @@ export default function UserIdentification() {
 
             <Input style={(isFocused || isFilled) && { borderColor: light.colors.green }} placeholder="Write your name" onChangeText={handleInputChange} onBlur={handleInputBlur} onFocus={handleInputFocus} />
             <Footer>
-              <Button />
+              <Button title="Confirm" onPress={handleSubmit} />
             </Footer>
           </Form>
         </Wrapper>

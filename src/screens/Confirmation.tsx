@@ -18,7 +18,9 @@ export default function Confirmation() {
         <Title>Ready</Title>
         <SubTitle>Now, let&apos;s start taking care of our plants</SubTitle>
         <Footer>
-          <Button />
+          <Button
+            title="Begin"
+          />
         </Footer>
       </Wrapper>
     </CfmContainer>

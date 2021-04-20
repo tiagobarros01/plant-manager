@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import { Entypo } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/core';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
@@ -15,6 +16,12 @@ import {
 import light from '../styles/themes/light';
 
 function Welcome() {
+  const navigation = useNavigation();
+
+  function handleStart() {
+    navigation.navigate('UserIdentification');
+  }
+
   return (
     <Container>
       <Wrraper>
@@ -31,7 +38,7 @@ function Welcome() {
           Não esqueça mais de regar suas plantas. Nós cuidamos de lembrar você
           sempre que precisar.
         </SubTitle>
-        <TouchableButton activeOpacity={0.7}>
+        <TouchableButton activeOpacity={0.7} onPress={handleStart}>
           <Entypo name="chevron-right" style={styles.buttonIcon} />
         </TouchableButton>
       </Wrraper>

@@ -10,13 +10,13 @@ import {
 export function Header() {
   const [userName, setUserName] = useState<string>();
 
-  async function loadSorageUserName() {
+  async function loadStorageUserName() {
     const user = await AsyncStorage.getItem('@plantManager:user');
     setUserName(user || '');
   }
 
   useEffect(() => {
-    loadSorageUserName();
+    loadStorageUserName();
   }, []);
 
   return (

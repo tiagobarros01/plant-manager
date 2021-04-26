@@ -25,7 +25,7 @@ export default function UserIdentification() {
 
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
-  const [name, setName] = useState<String>();
+  const [name, setName] = useState<string>();
 
   function handleInputBlur() {
     setIsFocused(false);

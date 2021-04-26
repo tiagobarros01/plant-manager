@@ -6,6 +6,7 @@ import { FlatList } from 'react-native-gesture-handler';
 
 import { EnvironmentButton } from '../components/EnvironmentButton';
 import { Header } from '../components/Header';
+import { Load } from '../components/Load';
 import { PlantCardPrimary } from '../components/PlantCardPrimary';
 import api from '../services/api';
 import {
@@ -35,6 +36,7 @@ export default function PlantSelect() {
   const [plants, setPlants] = useState<PlantsProps[]>([]);
   const [filteredPlants, setFilteredPlants] = useState<PlantsProps[]>([]);
   const [environmentActive, setEnvironmentActive] = useState('all');
+  const [loading, setLoading] = useState(true);
 
   function handleEnvironmentActive(environment: string) {
     setEnvironmentActive(environment);
@@ -64,9 +66,17 @@ export default function PlantSelect() {
     async function fetchPlants() {
       const { data } = await api.get('plants?_sort=name&_order=asc');
       setPlants(data);
+      setFilteredPlants(data);
+      setLoading(false);
     }
     fetchPlants();
   }, []);
+
+  if (loading) {
+    return (
+      <Load />
+    );
+  }
 
   return (
     <PlantSelectContainer>

@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/core';
 import React from 'react';
 
 import { Button } from '../components/Button';
@@ -11,6 +12,12 @@ import {
 } from '../styles/screens/Confirmation';
 
 export default function Confirmation() {
+  const navigation = useNavigation();
+
+  function handleMoveOn() {
+    navigation.navigate('PlantSelect');
+  }
+
   return (
     <CfmContainer>
       <Wrapper>
@@ -20,6 +27,7 @@ export default function Confirmation() {
         <Footer>
           <Button
             title="Begin"
+            onPress={handleMoveOn}
           />
         </Footer>
       </Wrapper>

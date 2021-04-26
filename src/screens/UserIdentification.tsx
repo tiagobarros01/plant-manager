@@ -1,11 +1,10 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/core';
 import React, { useState } from 'react';
 import {
   Alert,
   Keyboard, Platform, TouchableWithoutFeedback,
 } from 'react-native';
-
-import {} from '@re';
 
 import { Button } from '../components/Button';
 import {
@@ -42,8 +41,13 @@ export default function UserIdentification() {
     setName(value);
   }
 
-  function handleSubmit() {
-    !name ? Alert.alert('Tell me how to call you 😢') : navigation.navigate('Confirmation');
+  async function handleSubmit() {
+    if (!name) {
+      Alert.alert('Tell me how to call you 😢');
+    } else {
+      await AsyncStorage.setItem('@plantManager:user', name);
+      navigation.navigate('Confirmation');
+    }
   }
 
   return (

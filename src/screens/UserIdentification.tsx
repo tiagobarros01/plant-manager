@@ -65,7 +65,14 @@ export default function UserIdentification() {
                 </Title>
               </Header>
 
-              <Input style={(isFocused || isFilled) && { borderColor: light.colors.green }} placeholder="Write your name" onChangeText={handleInputChange} onBlur={handleInputBlur} onFocus={handleInputFocus} />
+              <Input
+                style={(isFocused || isFilled) && { borderColor: light.colors.green }}
+                placeholder="Write your name"
+                onChangeText={handleInputChange}
+                onBlur={handleInputBlur}
+                onFocus={handleInputFocus}
+                maxLength={12}
+              />
               <Footer>
                 <Button title="Confirm" onPress={handleSubmit} />
               </Footer>

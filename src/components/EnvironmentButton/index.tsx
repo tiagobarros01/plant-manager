@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 12,
     backgroundColor: light.colors.shape,
-    marginRight: 5,
+    marginHorizontal: 5,
   },
   containerActive: {
     backgroundColor: light.colors.lightGreen,

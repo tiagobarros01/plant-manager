@@ -24,3 +24,10 @@ export const SubTitle = styled.Text`
   line-height: 20;
   color: ${(props) => props.theme.colors.heading};
 `;
+
+export const PlantsContainer = styled.View`
+  flex: 1;
+  padding-left: 32;
+  padding-right: 32;
+  justify-content: center;
+`;

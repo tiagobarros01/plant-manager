@@ -14,9 +14,9 @@ export default function Confirmation() {
   return (
     <CfmContainer>
       <Wrapper>
-        <Emoji>🤝</Emoji>
+        <Emoji>🥳</Emoji>
         <Title>Ready</Title>
-        <SubTitle>Now, let&apos;s start taking care of our plants</SubTitle>
+        <SubTitle>Now, let&apos;s start taking care of our plants!</SubTitle>
         <Footer>
           <Button
             title="Begin"

@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/core';
 import React, { useState } from 'react';
-import { Platform } from 'react-native';
+import { Keyboard, Platform, TouchableWithoutFeedback } from 'react-native';
 
 import { Button } from '../components/Button';
 import {
@@ -44,23 +44,25 @@ export default function UserIdentification() {
   return (
     <Container>
       <KeyboardAvoid behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-        <Wrapper>
-          <Form>
-            <Header>
-              <Emoji>{ isFilled ? '😄' : '🤔' }</Emoji>
-              <Title>
-                How can we
-                {'\n'}
-                call you?
-              </Title>
-            </Header>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <Wrapper>
+            <Form>
+              <Header>
+                <Emoji>{ isFilled ? '😄' : '🤔' }</Emoji>
+                <Title>
+                  How can we
+                  {'\n'}
+                  call you?
+                </Title>
+              </Header>
 
-            <Input style={(isFocused || isFilled) && { borderColor: light.colors.green }} placeholder="Write your name" onChangeText={handleInputChange} onBlur={handleInputBlur} onFocus={handleInputFocus} />
-            <Footer>
-              <Button title="Confirm" onPress={handleSubmit} />
-            </Footer>
-          </Form>
-        </Wrapper>
+              <Input style={(isFocused || isFilled) && { borderColor: light.colors.green }} placeholder="Write your name" onChangeText={handleInputChange} onBlur={handleInputBlur} onFocus={handleInputFocus} />
+              <Footer>
+                <Button title="Confirm" onPress={handleSubmit} />
+              </Footer>
+            </Form>
+          </Wrapper>
+        </TouchableWithoutFeedback>
       </KeyboardAvoid>
     </Container>
   );

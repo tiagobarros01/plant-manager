@@ -26,17 +26,17 @@ function Welcome() {
     <Container>
       <Wrraper>
         <Title>
-          Gerencie
+          Manage
           {'\n'}
-          suas plantas de
+          your plants more
           {'\n'}
-          forma fácil
+          easily
         </Title>
 
         <Image source={wateringImg} resizeMode="contain" />
         <SubTitle>
-          Não esqueça mais de regar suas plantas. Nós cuidamos de lembrar você
-          sempre que precisar.
+          Don&apos;t forget to water your plants anymore. We take care to remember you
+          whenever you need.
         </SubTitle>
         <TouchableButton activeOpacity={0.7} onPress={handleStart}>
           <Entypo name="chevron-right" style={styles.buttonIcon} />

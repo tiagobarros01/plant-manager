@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
 import LottieView from 'lottie-react-native';
 import React from 'react';
 import { StyleSheet } from 'react-native';

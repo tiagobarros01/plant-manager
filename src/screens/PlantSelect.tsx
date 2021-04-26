@@ -1,6 +1,5 @@
-/* eslint-disable consistent-return */
-/* eslint-disable camelcase */
 /* eslint-disable @typescript-eslint/no-use-before-define */
+import { useNavigation } from '@react-navigation/core';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, ActivityIndicator } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
@@ -43,6 +42,8 @@ export default function PlantSelect() {
   const [page, setPage] = useState(1);
   const [loadingMore, setLoadingMore] = useState(false);
 
+  const navigation = useNavigation();
+
   function handleEnvironmentActive(environment: string) {
     setEnvironmentActive(environment);
 
@@ -51,6 +52,10 @@ export default function PlantSelect() {
     }
     const filtered = plants.filter((plant) => plant.environments.includes(environment));
     setFilteredPlants(filtered);
+  }
+
+  function handlePlantSelect(plant: PlantsProps) {
+    navigation.navigate('PlantSave');
   }
 
   async function fetchPlants() {
@@ -77,22 +82,20 @@ export default function PlantSelect() {
     fetchPlants();
   }
 
-  useEffect(() => {
-    async function fetchEnvironment() {
-      const { data } = await api.get('plants_environments?_sort=title&_order=asc');
-      setEnvironments([
-        {
-          key: 'all',
-          title: 'All',
-        },
-        ...data,
-      ]);
-    }
-    fetchEnvironment();
-  }, []);
+  async function fetchEnvironment() {
+    const { data } = await api.get('plants_environments?_sort=title&_order=asc');
+    setEnvironments([
+      {
+        key: 'all',
+        title: 'All',
+      },
+      ...data,
+    ]);
+  }
 
   useEffect(() => {
     fetchPlants();
+    fetchEnvironment();
   }, []);
 
   if (loading) {
@@ -135,6 +138,7 @@ export default function PlantSelect() {
           renderItem={({ item }) => (
             <PlantCardPrimary
               data={item}
+              onPress={() => handlePlantSelect(item)}
             />
           )}
           showsVerticalScrollIndicator={false}

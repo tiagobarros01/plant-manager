@@ -15,6 +15,9 @@
   },
   "plugins": ["react", "@typescript-eslint", "import-helpers"],
   "rules": {
+    "no-unused-vars": "off",
+    "consistent-return": "off",
+    "camelcase": "off",
     "no-unused-expressions": "off",
     "import/extensions": "off",
     "react/jsx-props-no-spreading": "off",

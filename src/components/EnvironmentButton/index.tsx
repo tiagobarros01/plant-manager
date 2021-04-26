@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import { StyleSheet } from 'react-native';
@@ -36,7 +37,7 @@ export function EnvironmentButton({ title, active = false, ...rest }: Environmen
 const styles = StyleSheet.create({
   container: {
     height: 40,
-    width: 76,
+    width: 90,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 12,

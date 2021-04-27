@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/core';
 import React, { useState } from 'react';
@@ -47,7 +48,13 @@ export default function UserIdentification() {
     } else {
       try {
         await AsyncStorage.setItem('@plantManager:user', name);
-        navigation.navigate('Confirmation');
+        navigation.navigate('Confirmation', {
+          title: 'Ready',
+          subtitle: `Now, let's start taking care of our plants!`,
+          buttonTitle: 'Begin',
+          icon: 'celebrating',
+          nextScreen: 'PlantSelect',
+        });
       } catch (error) {
         Alert.alert('Cant save your user name 😢');
         console.log(error);

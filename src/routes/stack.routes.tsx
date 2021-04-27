@@ -2,6 +2,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 
 import Confirmation from '../screens/Confirmation';
+import MyPlants from '../screens/MyPlants';
 import PlantSave from '../screens/PlantSave';
 import PlantSelect from '../screens/PlantSelect';
 import UserIdentification from '../screens/UserIdentification';
@@ -24,6 +25,7 @@ const AppRoutes: React.FC = () => (
     <stackRoutes.Screen name="Confirmation" component={Confirmation} />
     <stackRoutes.Screen name="PlantSelect" component={PlantSelect} />
     <stackRoutes.Screen name="PlantSave" component={PlantSave} />
+    <stackRoutes.Screen name="MyPlants" component={MyPlants} />
   </stackRoutes.Navigator>
 );
 

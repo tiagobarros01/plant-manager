@@ -1,4 +1,4 @@
-import { useNavigation } from '@react-navigation/core';
+import { useNavigation, useRoute } from '@react-navigation/core';
 import React from 'react';
 
 import { Button } from '../components/Button';
@@ -11,22 +11,42 @@ import {
   Title,
 } from '../styles/screens/Confirmation';
 
+interface Params {
+  title: string;
+  subtitle: string;
+  buttonTitle: string;
+  icon: 'celebrating' | 'grinning';
+  nextScreen: string;
+}
+
+const emojis = {
+  grinning: '🤩',
+  celebrating: '🥳',
+};
+
 export default function Confirmation() {
   const navigation = useNavigation();
+  const {
+    title,
+    subtitle,
+    buttonTitle,
+    icon,
+    nextScreen,
+  } = useRoute().params as Params;
 
   function handleMoveOn() {
-    navigation.navigate('PlantSelect');
+    navigation.navigate(nextScreen);
   }
 
   return (
     <CfmContainer>
       <Wrapper>
-        <Emoji>🥳</Emoji>
-        <Title>Ready</Title>
-        <SubTitle>Now, let&apos;s start taking care of our plants!</SubTitle>
+        <Emoji>{emojis[icon]}</Emoji>
+        <Title>{title}</Title>
+        <SubTitle>{subtitle}</SubTitle>
         <Footer>
           <Button
-            title="Begin"
+            title={buttonTitle}
             onPress={handleMoveOn}
           />
         </Footer>

@@ -7,28 +7,28 @@ export const Wrapper = styled.View`
   justify-content: space-between;
   align-items: center;
 
-  margin-top: ${getStatusBarHeight()};
+  margin-top: ${`${getStatusBarHeight()}px`};
 
-  padding-top: 20;
-  padding-bottom: 20;
+  padding-top: 20px;
+  padding-bottom: 20px;
 `;
 
 export const Greetings = styled.Text`
-  font-size: 32;
+  font-size: 32px;
   color: ${(props) => props.theme.colors.heading};
   font-family: ${(props) => props.theme.fonts.text};
 `;
 
 export const UserName = styled.Text`
-  font-size: 32;
+  font-size: 32px;
   font-family: ${(props) => props.theme.fonts.heading};
   color: ${(props) => props.theme.colors.heading};
-  line-height: 40;
+  line-height: 40px;
 `;
 
 export const UserImage = styled.Image`
-  width: 70;
-  height: 70;
+  width: 70px;
+  height: 70px;
 
-  border-radius: 35;
+  border-radius: 35px;
 `;

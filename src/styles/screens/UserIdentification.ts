@@ -22,8 +22,8 @@ export const Wrapper = styled.View`
 export const Form = styled.View`
   flex: 1;
   justify-content: center;
-  padding-left: 54;
-  padding-right: 54;
+  padding-left: 54px;
+  padding-right: 54px;
   align-items: center;
 `;
 
@@ -32,35 +32,35 @@ export const Header = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-size: 24;
+  font-size: 24px;
   text-align: center;
   color: ${(props) => props.theme.colors.heading};
   font-family: ${(props) => props.theme.fonts.heading};
-  line-height: 32;
-  margin-top: 20;
+  line-height: 32px;
+  margin-top: 20px;
 `;
 
 export const Emoji = styled.Text`
-    font-size: 44;
+  font-size: 44px;
 `;
 
 export const Input = styled.TextInput`
-  border-bottom-width: 1;
+  border-bottom-width: 1px;
   border-color: ${(props) => props.theme.colors.gray};
   color: ${(props) => props.theme.colors.heading};
   width: 100%;
-  font-size: 18;
-  margin-top: 50;
-  padding-top: 10;
-  padding-bottom: 10;
-  padding-left: 10;
-  padding-right: 10;
+  font-size: 18px;
+  margin-top: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   text-align: center;
 `;
 
 export const Footer = styled.View`
-  margin-top: 40;
+  margin-top: 40px;
   width: 100%;
-  padding-left: 20;
-  padding-right: 20;
+  padding-left: 20px;
+  padding-right: 20px;
 `;

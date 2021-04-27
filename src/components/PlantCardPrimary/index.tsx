@@ -20,7 +20,7 @@ export function PlantCardPrimary({ data, ...rest }: PlantProps) {
       style={styles.container}
       {...rest}
     >
-      <SvgFromUri uri={data.photo} width={100} height={100} />
+      <SvgFromUri uri={data.photo} width={90} height={90} />
       <Text>
         {data.name}
       </Text>

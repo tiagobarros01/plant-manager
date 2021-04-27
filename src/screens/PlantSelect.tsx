@@ -55,7 +55,7 @@ export default function PlantSelect() {
   }
 
   function handlePlantSelect(plant: PlantsProps) {
-    navigation.navigate('PlantSave');
+    navigation.navigate('PlantSave', { plant });
   }
 
   async function fetchPlants() {

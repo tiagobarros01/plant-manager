@@ -1,3 +1,4 @@
+import { useRoute } from '@react-navigation/core';
 import React from 'react';
 import { SvgFromUri } from 'react-native-svg';
 
@@ -15,26 +16,43 @@ import {
   PlantInfo,
 } from '../styles/screens/PlantSave';
 
+interface Params {
+  plant: {
+    id: string;
+    name: string;
+    about: string;
+    water_tips: string;
+    photo: string;
+    environments: [string];
+    frequency: {
+      times: number;
+      repeat_every: string;
+    }
+  }
+}
+
 export default function PlantSave() {
+  const { plant } = useRoute().params as Params;
+
   return (
     <PlantSaveContainer>
       <PlantInfo>
-        <SvgFromUri uri="" height={150} width={150} />
+        <SvgFromUri uri={plant.photo} height={150} width={150} />
         <PlantName>
-          Name of plant
+          {plant.name}
         </PlantName>
         <PlantDetails>
-          Plant Details
+          {plant.about}
         </PlantDetails>
       </PlantInfo>
       <Controller>
         <TipContainer>
           <TipImage source={waterDrop} />
           <TipText>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            {plant.water_tips}
           </TipText>
         </TipContainer>
-        <AlertLabel>Escolha</AlertLabel>
+        <AlertLabel>Select a best time to be remembered</AlertLabel>
         <Button
           title="Sign plant"
           onPress={() => {}}

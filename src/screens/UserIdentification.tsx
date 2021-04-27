@@ -45,8 +45,13 @@ export default function UserIdentification() {
     if (!name) {
       Alert.alert('Tell me how to call you 😢');
     } else {
-      await AsyncStorage.setItem('@plantManager:user', name);
-      navigation.navigate('Confirmation');
+      try {
+        await AsyncStorage.setItem('@plantManager:user', name);
+        navigation.navigate('Confirmation');
+      } catch (error) {
+        Alert.alert('Cant save your user name 😢');
+        console.log(error);
+      }
     }
   }
 

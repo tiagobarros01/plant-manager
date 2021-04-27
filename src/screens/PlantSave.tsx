@@ -9,7 +9,7 @@ import { SvgFromUri } from 'react-native-svg';
 
 import waterDrop from '../assets/waterdrop.png';
 import { Button } from '../components/Button';
-import { PlantProps } from '../libs/storage';
+import { loadPlant, PlantProps, SavePlant } from '../libs/storage';
 import {
   PlantSaveContainer,
   PlantName,
@@ -42,7 +42,7 @@ export default function PlantSave() {
 
     if (dateTime && isBefore(dateTime, new Date())) {
       setSelectedDateTime(new Date());
-      return Alert.alert('select an hour in the future! ⏰');
+      return Alert.alert('Select an hour in the future! ⏰');
     }
 
     if (dateTime) {
@@ -52,6 +52,18 @@ export default function PlantSave() {
 
   function handleOpenDateTimePickerForAndroid() {
     setshowDatePicker((prevState) => !prevState);
+  }
+
+  async function handleSave() {
+    try {
+      await SavePlant({
+        ...plant,
+        dateTimeNotification: selectedDateTime,
+      });
+    } catch (error) {
+      Alert.alert('Cant save! 😢');
+      console.log(error);
+    }
   }
 
   return (
@@ -99,7 +111,7 @@ export default function PlantSave() {
 
         <Button
           title="Sign plant"
-          onPress={() => {}}
+          onPress={handleSave}
         />
       </Controller>
     </PlantSaveContainer>

@@ -1,6 +1,7 @@
 import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
 import { useRoute } from '@react-navigation/core';
 import { isBefore } from 'date-fns';
+import { format } from 'date-fns/esm';
 import React, { useState } from 'react';
 import { Alert, Platform } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -8,6 +9,7 @@ import { SvgFromUri } from 'react-native-svg';
 
 import waterDrop from '../assets/waterdrop.png';
 import { Button } from '../components/Button';
+import { PlantProps } from '../libs/storage';
 import {
   PlantSaveContainer,
   PlantName,
@@ -19,21 +21,12 @@ import {
   Controller,
   PlantInfo,
   DateTimePickerText,
+  DateTimePickerButton,
+  DateTimePickerContainer,
 } from '../styles/screens/PlantSave';
 
 interface Params {
-  plant: {
-    id: string;
-    name: string;
-    about: string;
-    water_tips: string;
-    photo: string;
-    environments: [string];
-    frequency: {
-      times: number;
-      repeat_every: string;
-    }
-  }
+  plant: PlantProps;
 }
 
 export default function PlantSave() {
@@ -58,7 +51,7 @@ export default function PlantSave() {
   }
 
   function handleOpenDateTimePickerForAndroid() {
-
+    setshowDatePicker((prevState) => !prevState);
   }
 
   return (
@@ -82,23 +75,25 @@ export default function PlantSave() {
         <AlertLabel>Select a best time to be remembered</AlertLabel>
 
         { showDatePicker && (
-        <DateTimePicker
-          value={selectedDateTime}
-          mode="time"
-          display="spinner"
-          onChange={handleChangeTime}
-        />
+          <DateTimePickerContainer>
+            <DateTimePicker
+              value={selectedDateTime}
+              mode="time"
+              display="spinner"
+              onChange={handleChangeTime}
+            />
+          </DateTimePickerContainer>
         )}
 
         {
           Platform.OS === 'android' && (
-            <TouchableOpacity
+            <DateTimePickerButton
               onPress={handleOpenDateTimePickerForAndroid}
             >
               <DateTimePickerText>
-                Change hour
+                {`Change ${format(selectedDateTime, 'HH:mm')}`}
               </DateTimePickerText>
-            </TouchableOpacity>
+            </DateTimePickerButton>
           )
         }
 

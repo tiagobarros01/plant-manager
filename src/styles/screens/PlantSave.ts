@@ -51,13 +51,11 @@ export const TipContainer = styled.View`
 
   border-radius: 20px;
 
-  padding-right: 20px;
-  padding-left: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 
-  position: relative;
-  bottom: 60px;
 `;
 
 export const TipImage = styled.Image`
@@ -78,10 +76,24 @@ export const AlertLabel = styled.Text`
   text-align: center;
   font-family: ${(props) => props.theme.fonts.complement};
   color: ${(props) => props.theme.colors.heading};
-  font-size: 12px;
-  margin-bottom: 5px;
+  font-size: 14px;
+  margin-top: 10px;
+`;
+
+export const DateTimePickerContainer = styled.View` 
+  height: 150px;
+  margin-bottom: 10px;
+`;
+
+export const DateTimePickerButton = styled.TouchableOpacity`
+  width: 100%;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
 `;
 
 export const DateTimePickerText = styled.Text`
-  
+  color: ${(props) => props.theme.colors.heading};
+  font-size: 24px;
+  font-family: ${(props) => props.theme.fonts.text};
 `;

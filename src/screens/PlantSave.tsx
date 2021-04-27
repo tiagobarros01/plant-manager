@@ -1,15 +1,15 @@
+/* eslint-disable quotes */
 import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
-import { useRoute } from '@react-navigation/core';
+import { useNavigation, useRoute } from '@react-navigation/core';
 import { isBefore } from 'date-fns';
 import { format } from 'date-fns/esm';
 import React, { useState } from 'react';
 import { Alert, Platform } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { SvgFromUri } from 'react-native-svg';
 
 import waterDrop from '../assets/waterdrop.png';
 import { Button } from '../components/Button';
-import { loadPlant, PlantProps, SavePlant } from '../libs/storage';
+import { PlantProps, SavePlant } from '../libs/storage';
 import {
   PlantSaveContainer,
   PlantName,
@@ -32,6 +32,8 @@ interface Params {
 export default function PlantSave() {
   const [selectedDateTime, setSelectedDateTime] = useState(new Date());
   const [showDatePicker, setshowDatePicker] = useState(Platform.OS === 'ios');
+
+  const navigation = useNavigation();
 
   const { plant } = useRoute().params as Params;
 
@@ -59,6 +61,14 @@ export default function PlantSave() {
       await SavePlant({
         ...plant,
         dateTimeNotification: selectedDateTime,
+      });
+
+      navigation.navigate('Confirmation', {
+        title: 'Very well',
+        subtitle: `Dont worry, taht we'll always remind you to take care of your plant very carefully`,
+        buttonTitle: 'Thank you',
+        icon: 'grinning',
+        nextScreen: 'MyPlants',
       });
     } catch (error) {
       Alert.alert('Cant save! 😢');

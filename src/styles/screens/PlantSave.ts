@@ -81,3 +81,7 @@ export const AlertLabel = styled.Text`
   font-size: 12;
   margin-bottom: 5;
 `;
+
+export const DateTimePickerText = styled.Text`
+  
+`;

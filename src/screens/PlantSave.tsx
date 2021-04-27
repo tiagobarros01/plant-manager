@@ -1,5 +1,9 @@
+import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
 import { useRoute } from '@react-navigation/core';
-import React from 'react';
+import { isBefore } from 'date-fns';
+import React, { useState } from 'react';
+import { Alert, Platform } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import { SvgFromUri } from 'react-native-svg';
 
 import waterDrop from '../assets/waterdrop.png';
@@ -14,6 +18,7 @@ import {
   AlertLabel,
   Controller,
   PlantInfo,
+  DateTimePickerText,
 } from '../styles/screens/PlantSave';
 
 interface Params {
@@ -32,7 +37,29 @@ interface Params {
 }
 
 export default function PlantSave() {
+  const [selectedDateTime, setSelectedDateTime] = useState(new Date());
+  const [showDatePicker, setshowDatePicker] = useState(Platform.OS === 'ios');
+
   const { plant } = useRoute().params as Params;
+
+  function handleChangeTime(event: Event, dateTime: Date | undefined) {
+    if (Platform.OS === 'android') {
+      setshowDatePicker((prevState) => !prevState);
+    }
+
+    if (dateTime && isBefore(dateTime, new Date())) {
+      setSelectedDateTime(new Date());
+      return Alert.alert('select an hour in the future! ⏰');
+    }
+
+    if (dateTime) {
+      setSelectedDateTime(dateTime);
+    }
+  }
+
+  function handleOpenDateTimePickerForAndroid() {
+
+  }
 
   return (
     <PlantSaveContainer>
@@ -53,6 +80,28 @@ export default function PlantSave() {
           </TipText>
         </TipContainer>
         <AlertLabel>Select a best time to be remembered</AlertLabel>
+
+        { showDatePicker && (
+        <DateTimePicker
+          value={selectedDateTime}
+          mode="time"
+          display="spinner"
+          onChange={handleChangeTime}
+        />
+        )}
+
+        {
+          Platform.OS === 'android' && (
+            <TouchableOpacity
+              onPress={handleOpenDateTimePickerForAndroid}
+            >
+              <DateTimePickerText>
+                Change hour
+              </DateTimePickerText>
+            </TouchableOpacity>
+          )
+        }
+
         <Button
           title="Sign plant"
           onPress={() => {}}

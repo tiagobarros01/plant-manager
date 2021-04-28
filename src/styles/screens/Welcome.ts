@@ -17,7 +17,6 @@ export const Wrraper = styled.View`
 
 export const Title = styled.Text`
   font-size: 28px;
-  font-weight: bold;
   text-align: center;
   color: ${(props) => props.theme.colors.heading};
   margin-top: 30px;

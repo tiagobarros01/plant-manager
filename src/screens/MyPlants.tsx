@@ -5,6 +5,7 @@ import { FlatList } from 'react-native-gesture-handler';
 import waterDrop from '../assets/waterdrop.png';
 import { Text } from '../components/EnvironmentButton/style';
 import { Header } from '../components/Header';
+import { Load } from '../components/Load';
 import { PlantCardSecondary } from '../components/PlantCardSecondary';
 import { loadPlant, PlantProps } from '../libs/storage';
 import {
@@ -37,6 +38,12 @@ export default function MyPlants() {
   useEffect(() => {
     loadStorageData();
   }, []);
+
+  if (loading) {
+    return (
+      <Load />
+    );
+  }
 
   return (
     <MyPlantsContainer>

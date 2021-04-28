@@ -65,7 +65,7 @@ export default function PlantSave() {
 
       navigation.navigate('Confirmation', {
         title: 'Very well',
-        subtitle: `Dont worry, taht we'll always remind you to take care of your plant very carefully`,
+        subtitle: `Don't worry, taht we'll always remind you to take care of your plant very carefully`,
         buttonTitle: 'Thank you',
         icon: 'grinning',
         nextScreen: 'MyPlants',

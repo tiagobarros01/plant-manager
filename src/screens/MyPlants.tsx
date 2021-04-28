@@ -1,13 +1,14 @@
+/* eslint-disable quotes */
 import { formatDistance } from 'date-fns/esm';
 import React, { useEffect, useState } from 'react';
+import { Alert } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
 import waterDrop from '../assets/waterdrop.png';
-import { Text } from '../components/EnvironmentButton/style';
 import { Header } from '../components/Header';
 import { Load } from '../components/Load';
 import { PlantCardSecondary } from '../components/PlantCardSecondary';
-import { loadPlant, PlantProps } from '../libs/storage';
+import { loadPlant, PlantProps, removePlant } from '../libs/storage';
 import {
   SpotlightImage,
   SpotlightText,
@@ -21,6 +22,30 @@ export default function MyPlants() {
   const [myPlants, setMyPlants] = useState<PlantProps[]>([]);
   const [loading, setLoading] = useState(true);
   const [nextWaterd, setNextWaterd] = useState<string>();
+
+  function handleRemove(plant: PlantProps) {
+    Alert.alert('Remove', `Want to remove the ${plant.name}?`, [
+      {
+        text: 'No',
+        style: 'cancel',
+      },
+      {
+        text: 'Yes',
+        onPress: async () => {
+          try {
+            await removePlant(plant.id);
+
+            setMyPlants((prevState) => (
+              prevState.filter((item) => item.id !== plant.id)
+            ));
+          } catch (error) {
+            Alert.alert(`Couldn't be removed`);
+            console.log(error);
+          }
+        },
+      },
+    ]);
+  }
 
   async function loadStorageData() {
     const plantsStoraged = await loadPlant();
@@ -65,6 +90,7 @@ export default function MyPlants() {
           renderItem={({ item }) => (
             <PlantCardSecondary
               data={item}
+              handleRemove={() => { handleRemove(item); }}
             />
           )}
           showsVerticalScrollIndicator={false}

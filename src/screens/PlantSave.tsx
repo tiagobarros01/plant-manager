@@ -5,6 +5,7 @@ import { isBefore } from 'date-fns';
 import { format } from 'date-fns/esm';
 import React, { useState } from 'react';
 import { Alert, Platform } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import { SvgFromUri } from 'react-native-svg';
 
 import waterDrop from '../assets/waterdrop.png';
@@ -24,6 +25,7 @@ import {
   DateTimePickerButton,
   DateTimePickerContainer,
 } from '../styles/screens/PlantSave';
+import light from '../styles/themes/light';
 
 interface Params {
   plant: PlantProps;
@@ -77,26 +79,34 @@ export default function PlantSave() {
   }
 
   return (
-    <PlantSaveContainer>
-      <PlantInfo>
-        <SvgFromUri uri={plant.photo} height={150} width={150} />
-        <PlantName>
-          {plant.name}
-        </PlantName>
-        <PlantDetails>
-          {plant.about}
-        </PlantDetails>
-      </PlantInfo>
-      <Controller>
-        <TipContainer>
-          <TipImage source={waterDrop} />
-          <TipText>
-            {plant.water_tips}
-          </TipText>
-        </TipContainer>
-        <AlertLabel>Select a best time to be remembered</AlertLabel>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{
+        flex: 1,
+        justifyContent: 'center',
+        backgroundColor: light.colors.shape,
+      }}
+    >
+      <PlantSaveContainer>
+        <PlantInfo>
+          <SvgFromUri uri={plant.photo} height={150} width={150} />
+          <PlantName>
+            {plant.name}
+          </PlantName>
+          <PlantDetails>
+            {plant.about}
+          </PlantDetails>
+        </PlantInfo>
+        <Controller>
+          <TipContainer>
+            <TipImage source={waterDrop} />
+            <TipText>
+              {plant.water_tips}
+            </TipText>
+          </TipContainer>
+          <AlertLabel>Select a best time to be remembered</AlertLabel>
 
-        { showDatePicker && (
+          { showDatePicker && (
           <DateTimePickerContainer>
             <DateTimePicker
               value={selectedDateTime}
@@ -105,9 +115,9 @@ export default function PlantSave() {
               onChange={handleChangeTime}
             />
           </DateTimePickerContainer>
-        )}
+          )}
 
-        {
+          {
           Platform.OS === 'android' && (
             <DateTimePickerButton
               onPress={handleOpenDateTimePickerForAndroid}
@@ -119,11 +129,12 @@ export default function PlantSave() {
           )
         }
 
-        <Button
-          title="Sign plant"
-          onPress={handleSave}
-        />
-      </Controller>
-    </PlantSaveContainer>
+          <Button
+            title="Sign plant"
+            onPress={handleSave}
+          />
+        </Controller>
+      </PlantSaveContainer>
+    </ScrollView>
   );
 }

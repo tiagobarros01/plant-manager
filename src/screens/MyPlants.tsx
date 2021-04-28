@@ -8,7 +8,9 @@ import waterDrop from '../assets/waterdrop.png';
 import { Header } from '../components/Header';
 import { Load } from '../components/Load';
 import { PlantCardSecondary } from '../components/PlantCardSecondary';
-import { loadPlant, PlantProps, removePlant } from '../libs/storage';
+import {
+  loadPlant, PlantProps, removePlant,
+} from '../libs/storage';
 import {
   SpotlightImage,
   SpotlightText,
@@ -47,20 +49,19 @@ export default function MyPlants() {
     ]);
   }
 
-  async function loadStorageData() {
-    const plantsStoraged = await loadPlant();
-
-    const nextTime = formatDistance(
-      new Date(plantsStoraged[0].dateTimeNotification).getTime(),
-      new Date().getTime(),
-    );
-
-    setNextWaterd(`Don't forget to water the ${plantsStoraged[0].name} at ${nextTime}`);
-    setMyPlants(plantsStoraged);
-    setLoading(false);
-  }
-
   useEffect(() => {
+    async function loadStorageData() {
+      const plantsStoraged = await loadPlant();
+
+      const nextTime = formatDistance(
+        new Date(plantsStoraged[0].dateTimeNotification).getTime(),
+        new Date().getTime(),
+      );
+
+      setNextWaterd(`Don't forget to water the ${plantsStoraged[0].name} at ${nextTime}`);
+      setMyPlants(plantsStoraged);
+      setLoading(false);
+    }
     loadStorageData();
   }, []);
 

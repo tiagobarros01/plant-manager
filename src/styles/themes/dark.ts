@@ -6,18 +6,23 @@ export default {
     darkGreen: '#2B7A4B',
     lightGreen: '#DAF2E4',
 
-    heading: '#52665A',
+    heading: '#E83F5B',
     darkBody: '#738078',
     lightBody: '#AAB2AD',
 
-    background: '#FFFFFF',
-    shape: '#F0F0F0',
-    white: '#FFFFFF',
+    background: '#000',
+    shape: '#1212',
+    white: '#000',
     gray: '#CFCFCF',
 
     blue: '#3D7199',
     lightBlue: '#EBF6FF',
 
     red: '#E83F5B',
+  },
+  fonts: {
+    heading: 'Jost_600SemiBold',
+    text: 'Jost_400Regular',
+    complement: 'Jost_400Regular',
   },
 };

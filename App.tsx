@@ -5,6 +5,7 @@ import * as Notifications from 'expo-notifications';
 import React, { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 
+import ContextProvider from './src/contexts';
 import { PlantProps } from './src/libs/storage';
 import Routes from './src/routes/index';
 import light from './src/styles/themes/light';
@@ -29,8 +30,8 @@ export default function App() {
   if (!fontsLoaded) { return <AppLoading />; }
 
   return (
-    <ThemeProvider theme={light}>
+    <ContextProvider>
       <Routes />
-    </ThemeProvider>
+    </ContextProvider>
   );
 }

@@ -3,13 +3,14 @@ import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
 import { useNavigation, useRoute } from '@react-navigation/core';
 import { isBefore } from 'date-fns';
 import { format } from 'date-fns/esm';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Alert, Platform } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SvgFromUri } from 'react-native-svg';
 
 import waterDrop from '../assets/waterdrop.png';
 import { Button } from '../components/Button';
+import { ThemeContext } from '../contexts/ThemeContext';
 import { PlantProps, SavePlant } from '../libs/storage';
 import {
   PlantSaveContainer,
@@ -33,8 +34,11 @@ interface Params {
 }
 
 export default function PlantSave() {
+  const { theme } = useContext(ThemeContext);
+  const verifyTheme = theme.title === 'light';
+
   const [selectedDateTime, setSelectedDateTime] = useState(new Date());
-  const [showDatePicker, setshowDatePicker] = useState(Platform.OS === 'ios');
+  const [showDatePicker, setShowDatePicker] = useState(Platform.OS === 'ios');
 
   const navigation = useNavigation();
 
@@ -42,7 +46,7 @@ export default function PlantSave() {
 
   function handleChangeTime(event: Event, dateTime: Date | undefined) {
     if (Platform.OS === 'android') {
-      setshowDatePicker((prevState) => !prevState);
+      setShowDatePicker((prevState) => !prevState);
     }
 
     if (dateTime && isBefore(dateTime, new Date())) {
@@ -56,7 +60,7 @@ export default function PlantSave() {
   }
 
   function handleOpenDateTimePickerForAndroid() {
-    setshowDatePicker((prevState) => !prevState);
+    setShowDatePicker((prevState) => !prevState);
   }
 
   async function handleSave() {
@@ -68,7 +72,7 @@ export default function PlantSave() {
 
       navigation.navigate('Confirmation', {
         title: 'Very well',
-        subtitle: `Don't worry, taht we'll always remind you to take care of your plant very carefully`,
+        subtitle: `Don't worry, that we'll always remind you to take care of your plant very carefully`,
         buttonTitle: 'Thank you',
         icon: 'grinning',
         nextScreen: 'MyPlants',
@@ -114,6 +118,7 @@ export default function PlantSave() {
               mode="time"
               display="spinner"
               onChange={handleChangeTime}
+              textColor={verifyTheme ? '#222' : '#fff'}
             />
           </DateTimePickerContainer>
           )}

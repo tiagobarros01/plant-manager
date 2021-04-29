@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet } from 'react-native';
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 import { SvgFromUri } from 'react-native-svg';
 
+import { ThemeContext } from '../../contexts/ThemeContext';
 import dark from '../../styles/themes/dark';
 import light from '../../styles/themes/light';
 import { Text } from './style';
@@ -16,9 +17,12 @@ interface PlantProps extends RectButtonProps {
 }
 
 export function PlantCardPrimary({ data, ...rest }: PlantProps) {
+  const { theme } = useContext(ThemeContext);
+  const verifyTheme = theme.title === 'light';
+
   return (
     <RectButton
-      style={styles.container}
+      style={verifyTheme ? styles.containerLight : styles.containerDark}
       {...rest}
     >
       <SvgFromUri uri={data.photo} width={90} height={90} />
@@ -30,7 +34,16 @@ export function PlantCardPrimary({ data, ...rest }: PlantProps) {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  containerLight: {
+    flex: 1,
+    maxWidth: '45%',
+    backgroundColor: light.colors.primary,
+    borderRadius: 20,
+    paddingVertical: 10,
+    alignItems: 'center',
+    margin: 10,
+  },
+  containerDark: {
     flex: 1,
     maxWidth: '45%',
     backgroundColor: dark.colors.primary,

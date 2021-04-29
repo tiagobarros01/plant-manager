@@ -4,8 +4,6 @@ export const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  padding-left: 25px;
-  padding-right: 25px;
 `;
 
 export const ThemeEmoji = styled.Text`
@@ -22,7 +20,7 @@ export const ThemeTitle = styled.Text`
 export const BtnContainer = styled.View`
   flex-direction: row;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 `;
 
 export const ThemeButtonLight = styled.TouchableOpacity`
@@ -56,6 +54,10 @@ export const TouchableBtn = styled.TouchableOpacity`
   align-items: center;
   border-radius: 16px;
   margin-bottom: 10px;
+
+  position: relative;
+  top: 125px;
+
   height: 56px;
-  width: 170px;
+  width: 56px;
 `;

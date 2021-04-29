@@ -27,7 +27,8 @@ const AuthRoutes = () => {
           labelPosition: 'beside-icon',
           style: {
             height: 60,
-            borderTopWidth: 0,
+            borderWidth: 1,
+            borderTopColor: verifyTheme ? light.colors.primary : dark.colors.background,
           },
         }}
       >

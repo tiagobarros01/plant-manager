@@ -84,7 +84,7 @@ export default function PlantSave() {
       contentContainerStyle={{
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: light.colors.shape,
+        backgroundColor: light.colors.primary,
       }}
     >
       <PlantSaveContainer>

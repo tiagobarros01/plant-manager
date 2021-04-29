@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: light.colors.shape,
+    backgroundColor: light.colors.primary,
     marginVertical: 5,
   },
   btnRemove: {

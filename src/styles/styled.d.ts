@@ -13,7 +13,9 @@ declare module 'styled-components/native' {
       lightBody: string;
 
       background: string;
-      shape: string;
+      primary: string;
+
+      black: string;
       white: string;
       gray: string;
 
@@ -21,6 +23,9 @@ declare module 'styled-components/native' {
       lightBlue: string;
 
       red: string;
+      lightRed: string;
+      darkRed: string;
+
     };
     fonts: {
       heading: string;

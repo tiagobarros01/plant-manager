@@ -11,14 +11,19 @@ export default {
     lightBody: '#AAB2AD',
 
     background: '#FFFFFF',
-    shape: '#F0F0F0',
-    white: '#FFFFFF',
+    primary: '#F0F0F0',
+    secondary: '#cfcfcf',
+
+    black: '#171717',
+    white: '#F0F0F0',
     gray: '#CFCFCF',
 
     blue: '#3D7199',
     lightBlue: '#EBF6FF',
 
-    red: '#E83F5B',
+    red: '#e83f56',
+    lightRed: '#ff5e74',
+    darkRed: '#ba3043',
   },
   fonts: {
     heading: 'Jost_600SemiBold',

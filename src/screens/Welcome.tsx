@@ -20,9 +20,9 @@ import light from '../styles/themes/light';
 function Welcome() {
   const { theme, setTheme, toggleTheme } = useContext(ThemeContext);
 
-  setTimeout(() => {
-    toggleTheme(setTheme);
-  }, 1000);
+  // setTimeout(() => {
+  //   toggleTheme(setTheme);
+  // }, 1000);
 
   const navigation = useNavigation();
 

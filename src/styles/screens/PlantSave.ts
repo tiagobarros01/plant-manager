@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 export const PlantSaveContainer = styled.View`
   flex: 1;
   justify-content: space-between;
-  background: ${(props) => props.theme.colors.shape};
+  background: ${(props) => props.theme.colors.primary};
 `;
 
 export const PlantInfo = styled.View`
@@ -15,7 +15,7 @@ export const PlantInfo = styled.View`
   padding-bottom: 50px;
   justify-content: center;
   align-items: center;
-  background: ${(props) => props.theme.colors.shape};
+  background: ${(props) => props.theme.colors.primary};
 `;
 
 export const PlantName = styled.Text`

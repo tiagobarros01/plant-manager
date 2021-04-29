@@ -6,6 +6,6 @@ export const Text = styled.Text`
 `;
 
 export const TextActive = styled.Text`
-  color: ${(props) => props.theme.colors.darkGreen};
+  color: ${(props) => props.theme.colors.white};
   font-family: ${(props) => props.theme.fonts.heading};
 `;

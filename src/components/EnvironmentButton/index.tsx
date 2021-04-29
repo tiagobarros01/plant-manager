@@ -5,6 +5,7 @@ import { StyleSheet } from 'react-native';
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 
 import { ThemeContext } from '../../contexts/ThemeContext';
+import dark from '../../styles/themes/dark';
 import light from '../../styles/themes/light';
 import { Text, TextActive } from './style';
 
@@ -38,10 +39,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 12,
-    backgroundColor: light.colors.shape,
+    backgroundColor: dark.colors.primary,
     marginHorizontal: 5,
   },
   containerActive: {
-    backgroundColor: light.colors.lightGreen,
+    backgroundColor: light.colors.green,
   },
 });

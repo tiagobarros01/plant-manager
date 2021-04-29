@@ -10,21 +10,28 @@ interface Props {
 interface ThemeContextData {
   theme: DefaultTheme;
   setTheme: (theme: DefaultTheme) => void;
-  toggleTheme: (setThemeValue: any) => void;
+  setToLight: (setThemeValue: any) => void;
+  setToDark: (setThemeValue: any) => void;
 }
 
 const ThemeContext = createContext<ThemeContextData>({} as ThemeContextData);
 
 function ThemeContextProvider({ children }: Props) {
   const [theme, setTheme] = useState(light);
-  const { title } = theme;
 
-  function toggleTheme(setThemeValue: any) {
-    setThemeValue(title === 'light' ? dark : dark);
+  function setToLight(setThemeValue: any) {
+    setThemeValue(light);
+  }
+
+  function setToDark(setThemeValue: any) {
+    setThemeValue(dark);
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
+    <ThemeContext.Provider value={{
+      theme, setTheme, setToLight, setToDark,
+    }}
+    >
       {children}
     </ThemeContext.Provider>
   );

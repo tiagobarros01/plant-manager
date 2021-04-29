@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components/native';
 
 import { ThemeContext } from '../contexts/ThemeContext';
+import ChooseTheme from '../screens/ChooseTheme';
 import Confirmation from '../screens/Confirmation';
 import PlantSave from '../screens/PlantSave';
 import UserIdentification from '../screens/UserIdentification';
@@ -29,6 +30,7 @@ const AppRoutes: React.FC = () => {
         }}
       >
         <stackRoutes.Screen name="Welcome" component={Welcome} />
+        <stackRoutes.Screen name="ChooseTheme" component={ChooseTheme} />
         <stackRoutes.Screen
           name="UserIdentification"
           component={UserIdentification}

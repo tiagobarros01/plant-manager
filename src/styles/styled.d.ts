@@ -14,6 +14,7 @@ declare module 'styled-components/native' {
 
       background: string;
       primary: string;
+      secondary: string;
 
       black: string;
       white: string;

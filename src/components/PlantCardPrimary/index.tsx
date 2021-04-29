@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native';
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 import { SvgFromUri } from 'react-native-svg';
 
+import dark from '../../styles/themes/dark';
 import light from '../../styles/themes/light';
 import { Text } from './style';
 
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     maxWidth: '45%',
-    backgroundColor: light.colors.primary,
+    backgroundColor: dark.colors.primary,
     borderRadius: 20,
     paddingVertical: 10,
     alignItems: 'center',

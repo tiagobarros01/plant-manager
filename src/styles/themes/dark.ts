@@ -11,10 +11,10 @@ export default {
     lightBody: '#AAB2AD',
 
     background: '#120f17',
-    primary: '#28232e',
+    primary: '#221f24',
     secondary: '#35303b',
 
-    black: '#171717',
+    black: '#242424',
     white: '#F0F0F0',
     gray: '#CFCFCF',
 

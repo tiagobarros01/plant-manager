@@ -18,16 +18,12 @@ import {
 import light from '../styles/themes/light';
 
 function Welcome() {
-  const { theme, setTheme, toggleTheme } = useContext(ThemeContext);
-
-  // setTimeout(() => {
-  //   toggleTheme(setTheme);
-  // }, 1000);
+  const { theme } = useContext(ThemeContext);
 
   const navigation = useNavigation();
 
   function handleStart() {
-    navigation.navigate('UserIdentification');
+    navigation.navigate('ChooseTheme');
   }
 
   return (

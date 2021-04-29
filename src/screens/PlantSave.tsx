@@ -25,6 +25,7 @@ import {
   DateTimePickerButton,
   DateTimePickerContainer,
 } from '../styles/screens/PlantSave';
+import dark from '../styles/themes/dark';
 import light from '../styles/themes/light';
 
 interface Params {

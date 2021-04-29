@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import { Entypo } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/core';
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 
 import wateringImg from '../assets/watering.png';
+import { ThemeContext } from '../contexts/ThemeContext';
 import {
   SubTitle,
   Title,
@@ -14,22 +15,14 @@ import {
   TouchableButton,
   Wrapper,
 } from '../styles/screens/Welcome';
-import dark from '../styles/themes/dark';
 import light from '../styles/themes/light';
 
 function Welcome() {
-  const [theme, setTheme] = useState(light);
-  const { title } = theme;
+  const { theme, setTheme, toggleTheme } = useContext(ThemeContext);
 
-  const toggleTheme = () => {
-    setTheme(title === 'light' ? dark : light);
-  };
-
-  // setTimeout(() => {
-  //   toggleTheme();
-  // }, 1000);
-
-  console.log(theme);
+  setTimeout(() => {
+    toggleTheme(setTheme);
+  }, 1000);
 
   const navigation = useNavigation();
 
@@ -66,7 +59,7 @@ function Welcome() {
 const styles = StyleSheet.create({
   buttonIcon: {
     fontSize: 28,
-    color: light.colors.white,
+    color: light.colors.background,
   },
 });
 

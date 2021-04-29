@@ -32,7 +32,7 @@ export function PlantCardSecondary({ data, handleRemove, ...rest }: PlantProps) 
               style={styles.btnRemove}
               onPress={handleRemove}
             >
-              <Feather name="trash" size={32} color={light.colors.white} />
+              <Feather name="trash" size={32} color={light.colors.background} />
             </RectButton>
           </View>
         </Animated.View>

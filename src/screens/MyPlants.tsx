@@ -23,7 +23,7 @@ import {
 export default function MyPlants() {
   const [myPlants, setMyPlants] = useState<PlantProps[]>([]);
   const [loading, setLoading] = useState(true);
-  const [nextWaterd, setNextWaterd] = useState<string>();
+  const [nextWatered, setNextWatered] = useState<string>();
 
   function handleRemove(plant: PlantProps) {
     Alert.alert('Remove', `Want to remove the ${plant.name}?`, [
@@ -58,7 +58,7 @@ export default function MyPlants() {
         new Date().getTime(),
       );
 
-      setNextWaterd(`Don't forget to water the ${plantsStoraged[0].name} at ${nextTime}`);
+      setNextWatered(`Don't forget to water the ${plantsStoraged[0].name} at ${nextTime}`);
       setMyPlants(plantsStoraged);
       setLoading(false);
     }
@@ -77,12 +77,12 @@ export default function MyPlants() {
       <Spotlight>
         <SpotlightImage source={waterDrop} />
         <SpotlightText>
-          {nextWaterd}
+          {nextWatered}
         </SpotlightText>
       </Spotlight>
       <Plants>
         <PlantsTitle>
-          Next waterd
+          Next watered
         </PlantsTitle>
 
         <FlatList

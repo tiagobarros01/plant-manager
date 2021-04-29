@@ -30,8 +30,10 @@ export default function App() {
   if (!fontsLoaded) { return <AppLoading />; }
 
   return (
-    <ContextProvider>
-      <Routes />
-    </ContextProvider>
+    <ThemeProvider theme={light}>
+      <ContextProvider>
+        <Routes />
+      </ContextProvider>
+    </ThemeProvider>
   );
 }

@@ -34,7 +34,7 @@ export const PlantDetails = styled.Text`
 `;
 
 export const Controller = styled.View`
-  background: ${(props) => props.theme.colors.white};
+  background: ${(props) => props.theme.colors.background};
 
   padding-right: 20px;
   padding-left: 20px;

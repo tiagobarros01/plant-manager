@@ -50,6 +50,6 @@ export const TouchableButton = styled.TouchableOpacity`
 `;
 
 export const ButtonIcon = styled.Text`
-  color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.background};
   font-size: 32px;
 `;

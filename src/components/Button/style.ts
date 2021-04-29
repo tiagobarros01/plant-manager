@@ -10,6 +10,6 @@ export const BtnContainer = styled.TouchableOpacity`
 
 export const Text = styled.Text`
   font-size: 16px;
-  color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.background};
   font-family: ${(props) => props.theme.fonts.heading};
 `;

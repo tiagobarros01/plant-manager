@@ -1,13 +1,14 @@
 /* eslint-disable quotes */
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/core';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Alert,
   Keyboard, Platform, TouchableWithoutFeedback,
 } from 'react-native';
 
 import { Button } from '../components/Button';
+import { ThemeContext } from '../contexts/ThemeContext';
 import {
   Container,
   Wrapper,
@@ -19,9 +20,13 @@ import {
   KeyboardAvoid,
   Header,
 } from '../styles/screens/UserIdentification';
+import dark from '../styles/themes/dark';
 import light from '../styles/themes/light';
 
 export default function UserIdentification() {
+  const { theme } = useContext(ThemeContext);
+  const verifyTheme = theme.title === 'light';
+
   const navigation = useNavigation();
 
   const [isFocused, setIsFocused] = useState(false);
@@ -78,12 +83,17 @@ export default function UserIdentification() {
               </Header>
 
               <Input
-                style={(isFocused || isFilled) && { borderColor: light.colors.green }}
+                style={(
+                  isFocused || isFilled
+                ) && {
+                  borderColor: verifyTheme ? light.colors.green : dark.colors.green,
+                }}
                 placeholder="Write your name"
                 onChangeText={handleInputChange}
                 onBlur={handleInputBlur}
                 onFocus={handleInputFocus}
                 maxLength={12}
+                placeholderTextColor={verifyTheme ? light.colors.gray : dark.colors.gray}
               />
               <Footer>
                 <Button title="Confirm" onPress={handleSubmit} />

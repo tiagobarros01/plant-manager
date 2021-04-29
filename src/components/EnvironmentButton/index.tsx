@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable react/require-default-props */
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet } from 'react-native';
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 
+import { ThemeContext } from '../../contexts/ThemeContext';
 import light from '../../styles/themes/light';
 import { Text, TextActive } from './style';
 
@@ -12,24 +13,20 @@ interface EnvironmentButtonProps extends RectButtonProps {
   active?: boolean;
 }
 
-export function EnvironmentButton({ title, active = false, ...rest }: EnvironmentButtonProps) {
+export function EnvironmentButton({
+  title,
+  active = false,
+  ...rest
+}: EnvironmentButtonProps) {
+  const { theme } = useContext(ThemeContext);
+  const verifyTheme = theme.title === 'light';
+
   return (
     <RectButton
-      style={[
-        styles.container,
-        active && styles.containerActive,
-      ]}
+      style={[styles.container, active && styles.containerActive]}
       {...rest}
     >
-      {!active ? (
-        <Text>
-          { title }
-        </Text>
-      ) : (
-        <TextActive>
-          { title }
-        </TextActive>
-      )}
+      {!active ? <Text>{title}</Text> : <TextActive>{title}</TextActive>}
     </RectButton>
   );
 }

@@ -1,6 +1,6 @@
-<h1 align="center">
+<h1 align="center"  >
   <br>
-  <img src="./assets/icon.png"/>
+  <img src="./assets/favicon.png"/>
   <br>
   <br>
   PLANTMANAGER

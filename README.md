@@ -2,7 +2,6 @@
   <br>
   <img src="./assets/favicon.png"/>
   <br>
-  <br>
   PLANTMANAGER
  </h1>
  
@@ -13,10 +12,10 @@
 </p> -->
 
 ## Features
- - **React-Native** - A JavaScript framework for build Mobile Apps
- - **Typescript** - A superset of Javascript
- - **Styled-components** - A lib of styles for React
- - _I also used Eslint & Eslint-plugin-import-helpers in development_
+ - <img align="left" alt="Typescript" width="24px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" />**React Native** - A JavaScript framework for build Mobile Apps
+ - <img align="left" alt="Typescript" width="24px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png" />**Typescript** - A superset of Javascript
+ - <img align="left" alt="Typescript" width="24px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/styled-components/styled-components.png" />**Styled-Components** - A lib of styles for React
+ - <img align="left" alt="Typescript" width="24px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/eslint/eslint.png" /> _I also used Eslint in development_
 
 ## Getting started
 
